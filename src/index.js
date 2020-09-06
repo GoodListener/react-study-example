@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Todo from './Todo.js';
+import Profile from './Profile.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Profile userId="testUser01"></Profile>
+    <Todo title="리액트 공부 1" desc="고우고우"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
