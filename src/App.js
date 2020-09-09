@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+const UserContext = React.createContext({ username: '' });
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [user, setUser] = useState({ username: 'ekim' });
+    return (
+        <div>
+            <UserContext.Provider value={user}>
+                <div>상단메뉴</div>
+                <Profile />
+                <div>하단메뉴</div>
+            </UserContext.Provider>
+        </div>
+    )
 }
 
-export default App;
+function Profile() {
+    return(
+        <div>
+            <Greeting />
+        </div>
+    )
+}
+
+function Greeting() {
+    return (
+        <UserContext.Consumer>
+            {user => (
+                <>
+                    <p>인사 : </p>
+                    <p>{`${user.username}님 하이요.`}</p>
+                </>
+            )}
+        </UserContext.Consumer>
+    )
+}
