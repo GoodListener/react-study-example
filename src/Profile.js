@@ -1,17 +1,16 @@
 import React from 'react'
-import useUser from './useUser'
+import PropTypes from 'prop-types'
 
-export default function Profile({ userId }) {
-    const user = useUser.useUser(userId);
+Profile.propTypes = {
+    userId: PropTypes.string.isRequired,
+    userName: PropTypes.string
+}
+
+export default function Profile({ userId, userName }) {
     return (
         <div>
-            {!user && (<p>사용자 정보 가져오는 중</p>)}
-            {user && (
-                <>
-                    <p>{`name is ${user.userName}`}</p>
-                    <p>{`id is ${user.userId}`}</p>
-                </>
-            )}            
+            <p>{userId}</p>
+            <p>{userName}</p>
         </div>
     )
 }

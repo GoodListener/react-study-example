@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Todo from './Todo.js';
 import Profile from './Profile.js';
 import * as serviceWorker from './serviceWorker';
+import Todos from './component/Todos';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Profile userId="testUser01"></Profile>
-    <Todo title="리액트 공부 1" desc="고우고우"/>
+    <Profile userId="test" userName="userName"></Profile>
+    <Todos></Todos>
   </React.StrictMode>,
   document.getElementById('root')
 );
